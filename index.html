@@ -271,16 +271,209 @@
     <!-- Contact Section -->
     <section id="contacto" class="section section-contact">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            
-            <div class="contact-info">
-                <p class="contact-email">
-                    <a href="/cdn-cgi/l/email-protection#b2dad7dededdf2d0d7d1c6d3d1dddcc1c7dec6dbdcd59cd1dddf"><span class="__cf_email__" data-cfemail="09616c656566496b6c6a7d686a66677a7c657d60676e276a6664">[email&#160;protected]</span></a>
+            <div class="contact-header">
+                <h2 class="section-title-centered">Contacto Institucional | BECTA</h2>
+                <p class="contact-intro">
+                    Este formulario está destinado a personas y organizaciones que desean establecer un contacto institucional con BECTA.
                 </p>
-                <p class="contact-link">
-                    <a href="https://sites.google.com/bectaconsulting.com/becta-consulting-srl/inicio" target="_blank" rel="noopener">
-                        Formulario de contacto institucional
-                    </a>
+                <p class="contact-notice">
+                    BECTA interviene en decisiones, culturas y momentos críticos desde dentro del sistema humano, 
+                    no desde modelos externos. No es un servicio de consulta general ni un espacio terapéutico.
+                </p>
+            </div>
+            
+            <div class="form-wrapper">
+                <!-- Progress Indicator -->
+                <div class="form-progress">
+                    <div class="progress-step active" data-step="1">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Información</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="2">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Contexto</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="3">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Intervención</div>
+                    </div>
+                    <div class="progress-line"></div>
+                    <div class="progress-step" data-step="4">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Confirmación</div>
+                    </div>
+                </div>
+
+                <!-- Multi-step Form -->
+                <form name="contacto-becta" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="contact-form" id="contactForm">
+                    <input type="hidden" name="form-name" value="contacto-becta">
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field"></label>
+                    </p>
+
+                    <!-- Step 1: Información Personal -->
+                    <div class="form-step active" data-step="1">
+                        <h3 class="step-title">Información Personal</h3>
+                        
+                        <div class="form-group">
+                            <label for="nombre">Nombre y apellido <span class="required">*</span></label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="organizacion">Organización / Proyecto / Institución <span class="required">*</span></label>
+                            <input type="text" id="organizacion" name="organizacion" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rol">Rol actual dentro del sistema <span class="required">*</span></label>
+                            <input type="text" id="rol" name="rol" placeholder="Ej.: CEO, Dirección General, RRHH, Consejo, Fundador/a, Artista, Dirección Creativa" required>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-next" data-next="1">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Contexto -->
+                    <div class="form-step" data-step="2">
+                        <h3 class="step-title">Contexto de Contacto</h3>
+                        
+                        <div class="form-group">
+                            <label>¿Desde qué contexto nos contacta? <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="contexto" value="Liderazgo organizacional" required>
+                                    <span>Liderazgo organizacional</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contexto" value="Dirección / Consejo">
+                                    <span>Dirección / Consejo</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contexto" value="Equipo creativo o artístico">
+                                    <span>Equipo creativo o artístico</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contexto" value="Momento crítico con impacto sistémico">
+                                    <span>Momento crítico con impacto sistémico</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contexto" value="Exploración institucional">
+                                    <span>Exploración institucional</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="contexto" value="otro" id="contexto-otro">
+                                    <span>Otro</span>
+                                </label>
+                                <input type="text" id="contexto-otro-text" name="contexto-otro-detalle" placeholder="Especifique" class="conditional-input">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="situacion">¿Qué situación, decisión o contexto desea abordar? <span class="required">*</span></label>
+                            <textarea id="situacion" name="situacion" rows="5" placeholder="No es necesario entrar en detalles sensibles. Describa brevemente el marco desde el cual surge el contacto." required></textarea>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" data-prev="2">Anterior</button>
+                            <button type="button" class="btn btn-next" data-next="2">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Tipo de Intervención -->
+                    <div class="form-step" data-step="3">
+                        <h3 class="step-title">Tipo de Intervención</h3>
+                        
+                        <div class="form-group">
+                            <label>¿Qué tipo de intervención cree que podría ser necesaria? <span class="required">*</span></label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="intervencion" value="Decisión estratégica" required>
+                                    <span>Decisión estratégica</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="intervencion" value="Dinámica cultural del sistema">
+                                    <span>Dinámica cultural del sistema</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="intervencion" value="Acompañamiento en momento crítico">
+                                    <span>Acompañamiento en momento crítico</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="intervencion" value="BECTA | Creative & Leadership Hospitality">
+                                    <span>BECTA | Creative & Leadership Hospitality</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="intervencion" value="Exploración / diagnóstico inicial">
+                                    <span>Exploración / diagnóstico inicial</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="intervencion" value="No lo sé aún">
+                                    <span>No lo sé aún</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Correo electrónico <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ubicacion">País / Ciudad <span class="required">*</span></label>
+                            <input type="text" id="ubicacion" name="ubicacion" required>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" data-prev="3">Anterior</button>
+                            <button type="button" class="btn btn-next" data-next="3">Siguiente</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirmación -->
+                    <div class="form-step" data-step="4">
+                        <h3 class="step-title">Confirmación Final</h3>
+                        
+                        <div class="form-summary">
+                            <p class="summary-intro">Por favor, revise su información antes de enviar:</p>
+                            <div id="formSummary" class="summary-content"></div>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="confirmacion" required>
+                                <span class="checkbox-text">
+                                    Confirmo que comprendo que BECTA no es un servicio terapéutico ni un programa estándar, 
+                                    y que el contacto no implica una respuesta automática ni inmediata.
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="form-navigation">
+                            <button type="button" class="btn btn-prev" data-prev="4">Anterior</button>
+                            <button type="submit" class="btn btn-submit">Enviar Formulario</button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Success Message -->
+                <div id="successMessage" class="success-message hidden">
+                    <div class="success-icon">✓</div>
+                    <h3>Formulario Enviado Exitosamente</h3>
+                    <p>Gracias por contactar con BECTA. Hemos recibido su solicitud y será evaluada.</p>
+                    <p class="success-note">Recibirá una respuesta de acuerdo a la naturaleza de su consulta.</p>
+                </div>
+            </div>
+
+            <div class="contact-footer">
+                <p class="footer-note">
+                    <strong>Nota:</strong> Nunca envíes contraseñas a través de este formulario.
+                </p>
+                <p class="footer-credit">
+                    Formulario creado por Becta Consulting
                 </p>
             </div>
         </div>
@@ -291,4 +484,10 @@
         <div class="container">
             <p class="footer-copyright">© BECTA</p>
             <p class="footer-tagline">Sistema de arquitectura viva de la decisión</p>
-            <p
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
