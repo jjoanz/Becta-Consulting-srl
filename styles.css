@@ -159,23 +159,14 @@ a {
     transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-@media (max-width: 968px) {
-    .nav-toggle {
-        order: -1;
-    }
-}
-
-
 /* Hero Section */
 .hero {
     position: relative;
-    /* Reducción de la altura mínima para un diseño más compacto */
     min-height: 45vh; 
     display: flex;
     flex-direction: column;
     background: linear-gradient(135deg, #2a4a5a 0%, #1a3a4a 50%, #0f2633 100%);
-    overflow: hidden;
-    /* Se agrega padding superior para dejar espacio para la navbar fija */
+    overflow: visible;
     padding-top: 80px; 
 }
 
@@ -233,53 +224,81 @@ a {
 
 .hero-content {
     position: relative;
-    z-index: 2;
-    flex: 0;
+    z-index: 10;
+    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    /* Reducción de padding de 'lg' a 'md' para reducir el espacio alrededor del logo */
-    padding: var(--spacing-md) var(--spacing-lg); 
-    /* Reducción de la altura mínima de la caja de contenido del logo */
-    min-height: 200px; 
-}
-
-.hero-logo-container {
-    text-align: right;
-    margin-right: 10%;
-}
-
-.hero-logo {
-    font-family: var(--font-display);
-    font-size: clamp(3rem, 10vw, 8rem);
-    font-weight: 300;
-    color: var(--color-white);
-    letter-spacing: 0.1em;
-    margin-bottom: var(--spacing-xs);
-    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    justify-content: space-between;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    min-height: 280px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
 }
 
 .hero-subtitle {
     font-family: var(--font-sans);
-    font-size: clamp(1.2rem, 3vw, 2rem);
+    font-size: 1.1rem;
     font-weight: 300;
-    color: var(--color-white);
-    letter-spacing: 0.3em;
-    opacity: 0.9;
-    animation: fadeInUp 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.2s both;
+    color: #000;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.hero-logo-container {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    z-index: 100;
+}
+
+.hero-logo-img {
+    width: 220px;
+    height: auto;
+    filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.3));
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+    .hero-logo-img {
+        width: 420px;
+    }
+}
+
+/* Tablet y móvil */
+@media (max-width: 991px) {
+    .hero-content {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        padding: var(--spacing-md);
+        min-height: 250px;
+    }
+    
+    .hero-logo-container {
+        margin-top: var(--spacing-md);
+    }
+    
+    .hero-logo-img {
+        width: 240px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-logo-img {
+        width: 200px;
+    }
 }
 
 .hero-text {
     position: relative;
     z-index: 2;
     background: var(--color-light-bg);
-    /* Mantener o reducir si se necesita más compresión entre el logo y el texto inferior */
     padding: var(--spacing-sm) 0; 
 }
 
 .hero-intro {
-    /* Se reduce un poco el padding superior/inferior si es necesario */
     padding: var(--spacing-sm) 0; 
     animation: fadeInUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both;
 }
@@ -309,7 +328,6 @@ a {
 }
 
 .hero-desc-section {
-    /* Se reduce un poco el padding superior/inferior si es necesario */
     padding: var(--spacing-sm) 0; 
     background: linear-gradient(180deg, 
         var(--color-light-bg) 0%, 
@@ -321,14 +339,14 @@ a {
     font-size: clamp(3rem, 6vw, 5rem);
     font-weight: 300;
     color: var(--color-dark);
-    margin-bottom: var(--spacing-xs); /* Se asegura de que no haya mucho margen */
+    margin-bottom: var(--spacing-xs);
 }
 
 .hero-tagline {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 400;
     color: var(--color-text);
-    margin-bottom: var(--spacing-sm); /* Se reduce el margen inferior a 'sm' */
+    margin-bottom: var(--spacing-sm);
 }
 
 .hero-description {
@@ -338,7 +356,6 @@ a {
     line-height: 1.8;
 }
 
-/* Agregando el ajuste responsive extra para móviles para mayor compactación */
 @media (max-width: 968px) {
     .hero {
         min-height: 40vh;
@@ -519,7 +536,7 @@ a {
     padding-top: var(--spacing-md);
 }
 
-/* Creative & Leadership Hospitality Section - Simplified */
+/* Creative & Leadership Hospitality Section */
 .section-hospitality {
     background: rgba(245, 241, 234, 0.3);
 }
@@ -1489,8 +1506,10 @@ a {
         height: calc(100vh - 60px);
         background: var(--color-white);
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-left: 2rem;
+        padding-top: 3rem;
         gap: var(--spacing-lg);
         transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);

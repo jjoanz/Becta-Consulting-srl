@@ -283,19 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Close menu when clicking on a link with smooth animation
-    // MODIFICACIÓN: Se elimina la animación de opacidad en los links
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
-            // Se elimina la animación de opacidad:
-            // navLinks.forEach(l => { l.style.opacity = '0'; });
-            
-            // Cierra el menú y restaura el scroll inmediatamente después de un pequeño retraso para permitir el scroll ancla
-            // El scroll ancla se maneja después, pero el cierre visual se hace aquí.
+            // Cierra el menú y restaura el scroll inmediatamente después de un pequeño retraso
             setTimeout(() => {
                 navToggle.classList.remove('active');
                 navMenu.classList.remove('active');
                 body.style.overflow = '';
-            }, 200); // 200ms para que se complete el scroll
+            }, 200);
         });
     });
     
@@ -417,28 +412,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     targetCards.forEach(card => {
         cardObserver.observe(card);
-    });
-    
-    // Observe section elements for staggered smooth animation
-    const sections = document.querySelectorAll('.section');
-    sections.forEach((section, index) => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(40px)';
-    });
-    
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.transition = 'opacity 1s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                sectionObserver.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -100px 0px' });
-    
-    sections.forEach(section => {
-        sectionObserver.observe(section);
     });
     
     // Hero parallax effect with smooth scrolling
@@ -650,19 +623,6 @@ document.addEventListener('DOMContentLoaded', function() {
         contactObserver.observe(contactSection);
     }
     
-    // Initialize all animations
-    function initAnimations() {
-        const animatedElements = document.querySelectorAll('.pillar, .section-title, .hero-tagline');
-        
-        animatedElements.forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(30px)';
-            element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-        });
-    }
-    
-    initAnimations();
-    
     // Console message
     console.log('%cBECTA Consulting', 'font-size: 24px; font-weight: bold; color: #1a3a4a;');
     console.log('%cArquitectura viva de la decisión', 'font-size: 14px; color: #5a7a8a;');
@@ -690,12 +650,3 @@ window.addEventListener('scroll', optimizedScroll);
 
 // Prevent flash of unstyled content
 document.documentElement.style.visibility = 'visible';
-
-// FIX hero tagline (evita que quede invisible)
-const heroTagline = document.querySelector('.hero-tagline');
-if (heroTagline) {
-    setTimeout(() => {
-        heroTagline.style.opacity = '1';
-        heroTagline.style.transform = 'translateY(0)';
-    }, 600);
-}
