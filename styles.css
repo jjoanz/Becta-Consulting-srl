@@ -303,8 +303,7 @@ a {
 
 .hero-desc-section {
     /* Se reduce un poco el padding superior/inferior si es necesario */
-    padding-top: 0;
-    padding-bottom: var(--spacing-xs); 
+    padding: var(--spacing-sm) 0; 
     background: linear-gradient(180deg, 
         var(--color-light-bg) 0%, 
         rgba(232, 223, 208, 0.5) 100%);
@@ -321,9 +320,8 @@ a {
 .hero-tagline {
     font-size: clamp(1.5rem, 3vw, 2.5rem);
     font-weight: 400;
-    line-height: 1.2;
     color: var(--color-text);
-    margin-bottom: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm); /* Se reduce el margen inferior a 'sm' */
 }
 
 .hero-description {
@@ -335,13 +333,15 @@ a {
 
 /* Agregando el ajuste responsive extra para móviles para mayor compactación */
 @media (max-width: 968px) {
+    .hero {
+        min-height: 40vh;
+        padding-top: 70px;
+    }
     .hero-content {
-        padding: var(--spacing-sm) var(--spacing-sm);
-        min-height: auto;
+        min-height: 150px;
+        padding: var(--spacing-sm) var(--spacing-md);
     }
 }
-
-
 
 /* Sections */
 .section {
@@ -1540,7 +1540,7 @@ a {
     
     .hero-content {
         padding: var(--spacing-md) var(--spacing-sm);
-        min-height: auto;
+        min-height: 250px;
     }
     
     .section {
@@ -1557,7 +1557,7 @@ a {
     
     .hero-content {
         padding: var(--spacing-md) var(--spacing-sm);
-        min-height: auto;
+        min-height: 220px;
     }
     
     .hero-logo-container {
@@ -1574,7 +1574,7 @@ a {
     }
     
     .hero-text {
-        padding: var(--spacing-xs) 0;
+        padding: var(--spacing-sm) 0;
     }
     
     .navbar {
