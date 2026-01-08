@@ -232,9 +232,9 @@ a {
     align-items: center;
     justify-content: flex-end;
     /* Reducción de padding de 'lg' a 'md' para reducir el espacio alrededor del logo */
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg); 
     /* Reducción de la altura mínima de la caja de contenido del logo */
-    min-height: auto; 
+    min-height: 200px; 
 }
 
 .hero-logo-container {
